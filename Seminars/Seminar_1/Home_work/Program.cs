@@ -40,3 +40,18 @@ int number = Convert.ToInt32(Console.ReadLine());
 if (number % 2 == 0) Console.WriteLine($"Число {number} является чётным");
 else Console.WriteLine($"Число {number} является нечётным");
 */
+
+//Задача №4 Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.
+
+/*
+Console.Write("Введите число N: ");
+int number = Convert.ToInt32(Console.ReadLine());
+
+int current = 1;
+Console.Write($"Диапазон чётных чисел от 1 до {number}: ");
+while (current < number)
+{
+    if(current % 2 == 0) Console.Write(current + " ");  
+current++;
+}
+*/
