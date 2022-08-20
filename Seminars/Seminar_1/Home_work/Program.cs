@@ -1,7 +1,7 @@
 ﻿//Задача №1 Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.
 
 /*
-Console.WriteLine("Найти какое из двух чисел больше,а какое меньше ");
+Console.WriteLine("Найти какое из двух чисел больше, а какое меньше ");
 Console.Write("Введите первое число: ");
 int number1 = Convert.ToInt32(Console.ReadLine());
 
@@ -46,7 +46,7 @@ else Console.WriteLine($"Число {number} является нечётным")
 
 //Задача №4 Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.
 
-
+/*
 Console.WriteLine("Вывести все чётные числа от 1 до N: ");
 Console.Write("Введите число N: ");
 int number = Convert.ToInt32(Console.ReadLine());
@@ -58,3 +58,4 @@ while (current < number)
     if(current % 2 == 0) Console.Write(current + " ");  
 current++;
 }
+*/
