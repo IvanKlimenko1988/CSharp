@@ -73,6 +73,6 @@ void PrintDayOfWeek(int number)
     }   
 }
 Console.WriteLine("Является ли число, обозначающее день недели, выходным?");
-Console.Write("Введите число: ");
+Console.Write("Введите число от 1 до 7: ");
 int number = Convert.ToInt32(Console.ReadLine());
 PrintDayOfWeek(number);
