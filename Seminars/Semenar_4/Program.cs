@@ -1,5 +1,4 @@
-﻿using System.Xml.Serialization;
-//Задача № 1 - Напишите программу, которая принимает на вход число (А) и выдаёт сумму чисел от 1 до А.
+﻿//Задача № 1 - Напишите программу, которая принимает на вход число (А) и выдаёт сумму чисел от 1 до А.
 
 /*
 int FindSum(int num)
@@ -87,3 +86,15 @@ int [] randomNewArray = CreateNewArray(8);
 FillArray(randomNewArray, 0, 1);
 ShowArray(randomNewArray);
 //ДЗ 25 задачу реальзовать через цикл
+
+int[] CreateRandomArray(int size, int minValue, int maxValue)
+{
+    int[] newArray = new int[size];
+
+    for(int i = 0; i < size; i++)
+        newArray[i] = new Random().Next(minValue, maxValue + 1);
+
+    return newArray;
+}
+
+ShowArray(CreateRandomArray(25,0,9));
