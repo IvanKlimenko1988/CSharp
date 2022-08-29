@@ -24,7 +24,28 @@ String otvet = Convert.ToString(Polindron(number));
 if(otvet == "False") Console.WriteLine("Нет, число не полиндром");
 else Console.WriteLine("Да, число является полиндромом");
 */
-
+//Задача № 1 (решение 2) Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
+/*
+void Polindron(long number)
+{
+   long rev = 0;
+   long result = 0;
+   long current = number;
+   while ( current > 0)
+   {
+    rev = current % 10;
+    result = result * 10 + rev;
+    current = current / 10;
+    }
+   Console.WriteLine(result);
+   if (result == number) Console.WriteLine($"Число {number} - полиндом!");
+   else Console.Write($"Число {number} -  не полиндом!");    
+}
+Console.WriteLine("Программа для проверки числа на полиндром");
+Console.Write("Введите число: ");
+long number = Convert.ToInt64(Console.ReadLine()); 
+Polindron(number);
+*/
 //Задача № 2 Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
 /*
 double FindDist3D(double xA, double yA, double zA, double xB, double yB, double zB)
