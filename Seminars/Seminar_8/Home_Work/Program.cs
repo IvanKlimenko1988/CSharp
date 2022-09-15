@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-﻿
-=======
-﻿//Задача №1 -  Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
+//Задача №1 -  Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
 //Пузырьковая сортировка(сортировка внутри двумерного массива).
 /*
 int[,] CreateRandom2dArray()
@@ -135,7 +132,7 @@ ShowMinSumRow(myArr);
 // Результирующая матрица будет:
 // 18 20
 // 15 18
-
+/*
 int[,] CreateRandom2dArray()
 {
     Console.Write("Input number of rows: ");
@@ -155,7 +152,7 @@ int[,] CreateRandom2dArray()
 
     return newArray;
 }
-
+*/
 void Show2dArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
@@ -168,52 +165,41 @@ void Show2dArray(int[,] array)
 
     Console.WriteLine();
 }
+int[,] arr1 = { { 2, 4 }, { 3, 2 } };
+int[,] arr2 = { { 3, 4 }, { 3, 3 } };
 
-void MulArray(int[,] array1, int[,] array2)
+int[,]MulArray(int[,] array1, int[,] array2)
 {
     int row1 = array1.GetLength(0);
     int col1 = array1.GetLength(1);
     int row2 = array2.GetLength(0);
     int col2 = array2.GetLength(1);
-    int mul = 0;
-    int mu2 = 0;
-    int mu3 = 0;
-    int mu4 = 0;
-    int sum1 = 0;
-    int sum2 = 0;
+
+    int[,] mulArray = new int[row1, col2];
+
     if(col1 == row2)
-        {
-            int[,] mulArray = new int[row1, col2];
-            for(int i = 0; i < row1; i++)
-                for(int j = 0; j < col1; j++)
-                    
-                            {
-                                mul1 = array1[i,i] * array2[i,i];
-                                mul2 = array1[i,j] * array2[j,i];
-                                mul3 = array1[i,i] * array2[i,j];
-                                mul4 = array1[i,j] * array2[j,j];
-                                sum1 = mul1 + mul2;
-                                sum2 = mul3 + mul4; 
-                                
-                            }   
-                              
-                              
-
-
-
-        }
-
-
-
+    {
+        for(int i = 0; i < row1; i++)
+            for(int j = 0; j < col2; j++)
+            {
+                mulArray[i, j] = 0;
+                for (int k = 0; k < col1; k++)
+                    mulArray[i, j] += array1[i, k] * array2[k, j];
+            }
+        
+    }
+    return mulArray;
 }
 
 
 
-int[,] newArray1 = CreateRandom2dArray();
-int[,] newArray2 = CreateRandom2dArray();
-Show2dArray(newArray1);
-Show2dArray(newArray2);
+
+// int[,] newArray1 = CreateRandom2dArray();
+// int[,] newArray2 = CreateRandom2dArray();
+Show2dArray(arr1);
+Show2dArray(arr2);
+Show2dArray(MulArray(arr1, arr2));
+
 //Задача №4 - Попробовать через рекурсию, но необязательно. Как выводить трёхмерный массив - 
 
 //Задача №5 - Самая сложная! Решить в общем виде массив m x n
->>>>>>> 3534fe9b3dc9730300958b8441bd3f4828dfc79d
