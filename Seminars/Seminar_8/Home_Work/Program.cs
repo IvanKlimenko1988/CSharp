@@ -153,6 +153,7 @@ int[,] CreateRandom2dArray()
     return newArray;
 }
 */
+/*
 void Show2dArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
@@ -190,16 +191,82 @@ int[,]MulArray(int[,] array1, int[,] array2)
     }
     return mulArray;
 }
+*/
 
 
 
+// // int[,] newArray1 = CreateRandom2dArray();
+// // int[,] newArray2 = CreateRandom2dArray();
+// Show2dArray(arr1);
+// Show2dArray(arr2);
+// Show2dArray(MulArray(arr1, arr2));
 
-// int[,] newArray1 = CreateRandom2dArray();
-// int[,] newArray2 = CreateRandom2dArray();
-Show2dArray(arr1);
-Show2dArray(arr2);
-Show2dArray(MulArray(arr1, arr2));
+//Задача №4 - Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
+// Массив размером 2 x 2 x 2
+// 66(0,0,0) 25(0,1,0)
+// 34(1,0,0) 41(1,1,0)
+// 27(0,0,1) 90(0,1,1)
+// 26(1,0,1) 55(1,1,1)
+// Попробовать через рекурсию, но необязательно. Как выводить трёхмерный массив
 
-//Задача №4 - Попробовать через рекурсию, но необязательно. Как выводить трёхмерный массив - 
+int[,,] CreateRandom3dArray(int width, int rows, int columns)
+ {
+//     Console.Write("Input number of array: ");
+//     int width = Convert.ToInt32(Console.ReadLine());
+//     Console.Write("Input number of rows array: ");
+//     int rows = Convert.ToInt32(Console.ReadLine());
+//     Console.Write("Input number ofint columns array: ");
+//     int columns = Convert.ToInt32(Console.ReadLine());
+ 
+//     Console.Write("Input min possitible value: ");
+//     int minValue = Convert.ToInt32(Console.ReadLine());
+//     Console.Write("Input max possitible value: ");
+//     int maxValue = Convert.ToInt32(Console.ReadLine());
+
+    int[,,] newArray = new int[width, rows, columns];
+    int m = 0;
+    for (int i = 0; i < width; i++)
+        for (int j = 0; j <rows; j++)
+        {
+            m = 0;
+            for(int k = 0; k <columns; k++)
+            {   
+                
+                if(newArray[i, j, m] == newArray[i, j, k])
+                    {
+                        newArray[i, j, k] = new Random().Next(0, 10);
+                    }       
+                else m++;
+            }
+        }
+
+            
+                
+
+    return newArray;
+}
+
+void Show3dArray(int[,,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        Console.WriteLine($"Array number №{(i + 1)}, size array: {array.GetLength(0)} x {array.GetLength(1)} x {array.GetLength(2)}");
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for(int k = 0; k < array.GetLength(2); k++)
+                Console.Write($"{array[i, j, k]}({i},{j},{k}) ");
+            
+            Console.WriteLine();    
+        }
+            
+        Console.WriteLine();
+    }
+
+    Console.WriteLine();
+}
+
+
+int[,,] newArray = CreateRandom3dArray(2,3,3);
+Show3dArray(newArray);
 
 //Задача №5 - Самая сложная! Решить в общем виде массив m x n
