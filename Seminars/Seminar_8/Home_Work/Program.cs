@@ -263,3 +263,145 @@ Show3dArray(newArray);
 // 12 13 14 05
 // 11 16 15 06
 // 10 09 08 07 Самая сложная! Решить в общем виде массив m x n
+
+
+int[,] CreateRandom2dArray(int rows, int columns)
+{
+    // Console.Write("Input number of rows: ");
+    // int rows = Convert.ToInt32(Console.ReadLine());
+    // Console.Write("Input number of columns: ");
+    // int columns = Convert.ToInt32(Console.ReadLine());
+    // Console.Write("Input min possitible value: ");
+
+    int[,] newArray = new int[rows, columns];
+
+    int i = 0;
+
+    int k = 0;
+
+    while (k < columns)
+    {
+        newArray[i, k] = i + (k + 1);
+        k++;
+    }
+    int lastFirstRow = 1;
+    while(lastFirstRow < rows)
+    {
+        newArray[lastFirstRow, columns - 1] = (newArray[lastFirstRow - 1, columns - 1] + 1);
+        lastFirstRow++; 
+    }
+
+    int lastRow = columns - 2;
+    newArray[rows - 1, lastRow] = newArray[lastFirstRow - 1, columns - 1] + 1;
+    while(lastRow != 0)
+    {
+        newArray[rows - 1, lastRow - 1] = newArray[rows - 1, lastRow] + 1;
+        lastRow--;
+    }
+
+    int firstColumn = rows - 2;
+    newArray[firstColumn, lastRow] = newArray[rows - 1, lastRow] + 1;
+    while(firstColumn != 1)
+
+    {
+        newArray[firstColumn - 1, lastRow] = newArray[firstColumn, lastRow] + 1;
+        firstColumn--;
+
+    }
+    int secRows = firstColumn;
+    newArray[secRows, firstColumn] = newArray[firstColumn, lastRow] + 1; 
+    while(firstColumn < columns - 2)
+        {
+        newArray[secRows, firstColumn + 1] = newArray[secRows, firstColumn] + 1;
+        firstColumn++;
+        }
+    // while(secRows < firstColumn)
+
+    // for (int i = 0; i < rows; i++)
+    // {
+    //     for (int j = 0; j < columns; j++)
+    //     {
+
+
+    //         while (j < columns)
+    //         {
+    //             newArray[i, j] = i + (j + 1);
+    //             j++;
+    //         }
+    //         int lastFirstRow = 1;
+    //         while (lastFirstRow < rows)
+    //         {
+    //             newArray[lastFirstRow, columns - 1] = (newArray[lastFirstRow - 1, columns - 1] + 1);
+    //             lastFirstRow++;
+    //         }
+
+    //         int lastRow = columns - 2;
+    //         newArray[rows - 1, lastRow] = newArray[lastFirstRow - 1, columns - 1] + 1;
+    //         while (lastRow != 0)
+    //         {
+    //             newArray[rows - 1, lastRow - 1] = newArray[rows - 1, lastRow] + 1;
+    //             lastRow--;
+    //         }
+
+    //         int firstColumn = rows - 2;
+    //         newArray[firstColumn, lastRow] = newArray[rows - 1, lastRow] + 1;
+    //         while (firstColumn != 1)
+
+    //         {
+    //             newArray[firstColumn - 1, lastRow] = newArray[firstColumn, lastRow] + 1;
+    //             firstColumn--;
+
+    //         }
+    //         if(i == 0) continue;
+
+    //         newArray[firstColumn, i] = newArray[firstColumn, lastRow] + 1;
+    //         // while (firstColumn < columns - 2)
+    //         //     {
+                    
+    //         //     newArray[firstColumn, j] 
+    //         //     }
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    return newArray;
+}
+
+
+void Show2dArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+            Console.Write(array[i, j] + " ");
+
+        Console.WriteLine();
+    }
+
+    Console.WriteLine();
+}
+
+int[,] newArray = CreateRandom2dArray(4, 4);
+Show2dArray(newArray);
