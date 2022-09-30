@@ -262,11 +262,6 @@ Show3dArray(newArray);
 // 11 16 15 6
 // 10 9 8 7
 
-Clear();
-Write("Введите размер матрицы: ");
-int s = int.Parse(ReadLine());
-int[,] newArray = new int[s,s];
-Show2dArray(newArray);
 int[,] GetArray(int size)
 {
     int[,] array = new int[size, size];
@@ -275,20 +270,19 @@ int[,] GetArray(int size)
     int rowEnd = size - 1;
     int colEnd = size - 1;
     int rowStart = 0;
-    int colStatt = 0;
-
+    int colStart = 0;
     bool left = true;
     bool top = true;
     int count = 0;
 
-    while(count < size * size)
+    while (count < size * size)
     {
         count++;
-        array[i,j] = count;
+        array[i, j] = count;
         //Идём вправо
-        if(left && top)
+        if (left && top)
         {
-            if(j == colEnd)
+            if (j == colEnd)
             {
                 rowStart++;
                 top = true;
@@ -303,9 +297,9 @@ int[,] GetArray(int size)
             }
         }
         //Идём вниз
-        if(!left&&top)
+        if (!left && top)
         {
-            if(i == rowEnd)
+            if (i == rowEnd)
             {
                 colEnd--;
                 top = false;
@@ -320,9 +314,9 @@ int[,] GetArray(int size)
             }
         }
         //Идёи влево
-        if(!left&&!top)
+        if (!left && !top)
         {
-            if(j==colStatt)
+            if (j == colStart)
             {
                 rowEnd--;
                 top = false;
@@ -337,11 +331,11 @@ int[,] GetArray(int size)
             }
         }
         //Идём вверх
-        if(left&&!top)
+        if (left && !top)
         {
-            if(i==rowStart)
+            if (i == rowStart)
             {
-                colStatt++;
+                colStart++;
                 top = true;
                 left = true;
                 j++;
@@ -354,7 +348,7 @@ int[,] GetArray(int size)
             }
         }
     }
-    return array;
+return array;
 }
 
 void Show2dArray(int[,] array)
@@ -362,12 +356,15 @@ void Show2dArray(int[,] array)
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
-            Console.Write(array[i, j] + " ");
+            Write(array[i, j] + " ");
 
-        Console.WriteLine();
+        WriteLine();
     }
-
-    Console.WriteLine();
+    WriteLine();
 }
 
-
+Clear();
+Write("Введите размер матрицы: ");
+int size = int.Parse(ReadLine());
+int[,] newArray = GetArray(size);
+Show2dArray(newArray);
